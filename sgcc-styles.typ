@@ -1,5 +1,16 @@
 #let sgcc-conf(doc) = {
-  set page(paper: "a4")
+  set page(paper: "a4", footer: context {
+    let n = counter(page).get().first()
+    let line = [—]
+    let space = h(0.5em)
+    let page-footer = text(size: 14pt)[#line#space#n#space#line]
+    let one-char = text(size: 14pt)[#h(1em)]
+    if calc.odd(n) {
+      align(right, page-footer + one-char)
+    } else {
+      align(left, one-char + page-footer)
+    }
+  })
 
   set text(
     font: ((name: "Times New Roman", covers: "latin-in-cjk"), "FZFangSong-Z02"),
@@ -18,7 +29,7 @@
   show enum: e => {
     for (i, item) in e.children.enumerate() {
       let n = i + 1
-      block(spacing: 12pt, [#h(2em) #n\. #item.body])
+      block(spacing: 12pt, [#h(2em)#n.#h(0.5em)#item.body])
     }
   }
 
