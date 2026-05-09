@@ -19,7 +19,7 @@
     bottom-edge: "descender",
   )
 
-  show par: set par(
+  set par(
     first-line-indent: (amount: 2em, all: true),
     justify: true,
     leading: 12pt,
@@ -92,13 +92,13 @@
     )[#context h4.display("（1）") #it.body]
   }
 
+  show title: it => {
+    align(center)[
+      #v(22pt)
+      #text(size: 22pt, font: "FZXiaoBiaoSong-B05")[#it.body]
+      #v(22pt)
+    ]
+  }
+
   doc
 }
-
-#let sgcc-title(title) = align(center)[
-  #v(22pt)
-  #text(size: 22pt, font: "FZXiaoBiaoSong-B05")[
-    #title
-  ]
-  #v(22pt)
-]
