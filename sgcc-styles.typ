@@ -1,4 +1,4 @@
-#let sgcc-conf(doc) = {
+#let sgcc-conf(title: [], author: (), doc) = {
   set page(paper: "a4", footer: context {
     let n = counter(page).get().first()
     let line = [—]
@@ -11,6 +11,11 @@
       align(left, one-char + page-footer)
     }
   })
+
+  set figure(supplement: [图])
+  show figure.caption: it => {
+    [#it.supplement#it.counter.display(it.numbering)#h(0.5em)#it.body]
+  }
 
   set text(
     font: ((name: "Times New Roman", covers: "latin-in-cjk"), "FZFangSong-Z02"),
@@ -50,7 +55,7 @@
     block(
       inset: (left: 2em),
       spacing: 12pt,
-    )[#context h1.display("一、") #it.body]
+    )[#context h1.display("一、")#it.body]
   }
 
   show heading.where(level: 2): it => {
@@ -64,7 +69,7 @@
     block(
       inset: (left: 2em),
       spacing: 12pt,
-    )[#context h2.display("（一）") #it.body]
+    )[#context h2.display("（一）")#it.body]
   }
 
   show heading.where(level: 3): it => {
@@ -77,7 +82,7 @@
     block(
       inset: (left: 2em),
       spacing: 12pt,
-    )[#context h3.display("1. ") #it.body]
+    )[#context h3.display("1. ")#it.body]
   }
 
   show heading.where(level: 4): it => {
@@ -89,16 +94,17 @@
     block(
       inset: (left: 2em),
       spacing: 12pt,
-    )[#context h4.display("（1）") #it.body]
+    )[#context h4.display("（1）")#it.body]
   }
 
-  show title: it => {
-    align(center)[
-      #v(22pt)
-      #text(size: 22pt, font: "FZXiaoBiaoSong-B05")[#it.body]
-      #v(22pt)
-    ]
-  }
+  align(center)[
+    #v(22pt)
+    #text(size: 22pt, font: "FZXiaoBiaoSong-B05")[#title]
+    #if author.len() > 0 {
+      [#parbreak()#text(size: 16pt)[#author.at(0)]]
+    } else []
+    #v(22pt)
+  ]
 
   doc
 }
