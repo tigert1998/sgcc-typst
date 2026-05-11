@@ -1,8 +1,6 @@
-#import "sgcc-styles.typ": sgcc-conf
+#import "sgcc-conf.typ": sgcc-conf
 
-#show: sgcc-conf
-
-#title([国网江苏信通公司文档常用格式])
+#show: sgcc-conf.with(title: [国网江苏信通公司文档常用格式])
 
 = 标题
 一般用2号方正小标宋体字，分一行或多行居中排布；回行时，要做到词意完整，排列对称，长短适宜，间距恰当，标题排列应当使用梯形或菱形。
