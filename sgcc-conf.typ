@@ -16,10 +16,10 @@
 
   show: show-cn-fakebold
 
-  set figure(supplement: [图])
-  show figure.caption: it => {
-    [#it.supplement#it.counter.display(it.numbering)#h(0.5em)#it.body]
-  }
+  show figure.where(kind: image): set figure(supplement: [图])
+  show figure.where(kind: raw): set figure(supplement: [代码])
+  show figure.where(kind: table): set figure(supplement: [表])
+  set figure.caption(separator: h(0.5em))
 
   set text(
     font: ((name: "Times New Roman", covers: "latin-in-cjk"), "FZFangSong-Z02"),
