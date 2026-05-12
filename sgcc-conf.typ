@@ -1,3 +1,5 @@
+#import "@preview/cuti:0.2.1": show-cn-fakebold
+
 #let sgcc-conf(title: [], author: (), doc) = {
   set page(paper: "a4", footer: context {
     let n = counter(page).get().first()
@@ -11,6 +13,8 @@
       align(left, one-char + page-footer)
     }
   })
+
+  show: show-cn-fakebold
 
   set figure(supplement: [图])
   show figure.caption: it => {
@@ -42,6 +46,8 @@
   let h2 = counter("h2")
   let h3 = counter("h3")
   let h4 = counter("h4")
+
+  show heading: set text(weight: "regular")
 
   show heading.where(level: 1): it => {
     set text(
