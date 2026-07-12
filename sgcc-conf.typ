@@ -59,9 +59,10 @@
     h3.update(0)
     h4.update(0)
     block(
-      inset: (left: 2em),
       spacing: 12pt,
-    )[#context h1.display("一、")#it.body]
+    )[#par(
+      first-line-indent: (amount: 2em, all: true),
+    )[#context h1.display("一、")#it.body]]
   }
 
   show heading.where(level: 2): it => {
@@ -73,9 +74,10 @@
     h3.update(0)
     h4.update(0)
     block(
-      inset: (left: 2em),
       spacing: 12pt,
-    )[#context h2.display("（一）")#it.body]
+    )[#par(
+      first-line-indent: (amount: 2em, all: true),
+    )[#context h2.display("（一）")#it.body]]
   }
 
   show heading.where(level: 3): it => {
@@ -86,9 +88,10 @@
     h3.step()
     h4.update(0)
     block(
-      inset: (left: 2em),
       spacing: 12pt,
-    )[#context h3.display("1. ")#it.body]
+    )[#par(
+      first-line-indent: (amount: 2em, all: true),
+    )[#context h3.display("1. ")#it.body]]
   }
 
   show heading.where(level: 4): it => {
@@ -98,9 +101,10 @@
     )
     h4.step()
     block(
-      inset: (left: 2em),
       spacing: 12pt,
-    )[#context h4.display("（1）")#it.body]
+    )[#par(
+      first-line-indent: (amount: 2em, all: true),
+    )[#context h4.display("（1）")#it.body]]
   }
 
   align(center)[
